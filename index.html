@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Simple Payment form with validation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+
+    </style>
+    
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mx-auto">
+                    <div class="myform">
+
+                        <section class="cardSection mb-3 mx-auto">
+                            <div class="vartualCard">
+                                <div class="front">
+                                    <div class="cardContant">
+                                        <div class="col-12 mx-auto">
+                                            <div class="row pt-3 pr-3">
+                                                <div class="col-6 cardContant">
+                                                    <img src="assets/images/chip.png" width="45%" alt="chip">
+                                                </div>
+                                                <div class="col-6 cardContant text-right">
+                                                  <div class="cardLogo transparent" id="mastercard"> 
+                                                    <img src="assets/images/mastercard.png" class="" width="40%" alt="chip">
+                                                </div>
+                                                <div class="cardLogo" id="visa">
+                                                    <img src="assets/images/visa.png" class="" width="50%" alt="chip">
+                                                </div>
+                                                <div class="cardLogo transparent" id="amex">
+                                                    <img src="assets/images/amex.png" class="" width="50%" alt="chip">
+                                                </div>
+                                            </div>
+
+                                                <div class="row mt-4 cardContant">
+                                                    <div class="col-12 text-center cardContant">
+                                                        <div class="cardNo" id="numberOnCard"><div>#### #### #### ####</div></div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="row"> -->
+                                                <div class="col-9 mt-4 pt-5 cardContant">
+                                                    <div class="row cardContant">
+                                                        <div class="col-12 text-white cardContant cardFont">Card Holder</div>
+                                                        <div class="col-12 text-white cardContant tx-tfm"><div id="nameOnCard"> Sandeep Kushwaha</div>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 mt-4 pt-5 cardContant">
+                                                    <div class="row cardContant">
+                                                        <div class="col-12 text-white cardContant cardFont">Expires</div>
+                                                    </div>
+                                                        <div class="row cardContantPosition">
+                                                        <div class="col-12 text-white cardContantPosition">
+                                                            <div id=monthOnCard class="cardContantPosition">MM</div><div class="cardContantPosition">/</div><div class="cardContantPosition" id=yearOnCard>YY</div>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="cardContant">
+                                        <div class="col-12 mx-auto">
+                                            <div class="row pt-4">
+                                                    <img src="assets/images/13.jpeg" width="100%" height="40" alt="chip">
+                                           
+                                                <div class="row mt-4 justify-content-end cardContant">
+                                                    <div class="col-12 text-right cardContant">
+                                                        <div class="text-white cardContant cardFont">CVV</div>
+                                                    </div>
+                                                        <div class="col-11 text-right bg cardContant">
+                                                            <div class="pr-4" id="ccvOnCard"></div>
+                                                        </div>
+                                                    
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="form">
+                            <form action="" method="post" name="payment">
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group">
+                                            <label for="cardNumber">Card Number</label>
+                                            <input type="text" name="cardNumber" class="form-control cardNumber"
+                                                id="cardNumber" maxlength="16" aria-describedby="cardNumber"
+                                                placeholder="Card Number" onclick="flipremove()">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cardName">Card Name</label>
+                                            <input type="text" name="cardName" id="cardName"
+                                                class="form-control cardName" aria-describedby="cardName"
+                                                placeholder="Card Name" onclick="flipremove()">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="expirationDate">Expiration Date</label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <select type="month" id="cardMonth" name="cardMonth"
+                                                    class="form-control cardMonth" onclick="flipremove()">
+                                                    <option value="">Month</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select id="cardYear" name="cardYear" class="form-control cardYear"
+                                                    onclick="flipremove()">
+                                                    <option value="">Year</option>
+                                                    <option value="20">2020</option>
+                                                    <option value="21">2021</option>
+                                                    <option value="22">2022</option>
+                                                    <option value="23">2023</option>
+                                                    <option value="24">2024</option>
+                                                    <option value="25">2025</option>
+                                                    <option value="26">2026</option>
+                                                    <option value="27">2027</option>
+                                                    <option value="28">2028</option>
+                                                    <option value="29">2029</option>
+                                                    <option value="30">2030</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="cvv">CVV</label>
+                                        <input type="password" name="cvvNumber" class="form-control cvvNumber"
+                                            id="cvvNumber" maxlength="4" aria-describedby="cvvNumber" placeholder="CVV"
+                                            onclick="flipadd()">
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="col-md-12 text-center ">
+                                    <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Pay</button>
+                                </div>
+
+                            </form>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="assets/jquery.payform.min.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
